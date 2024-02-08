@@ -19,6 +19,6 @@ steps:
   displayName: 'Run a multi-line script'
 
 - script: |
-    docker build -t ubuntu-latest:latest .452297zzZ
-    docker push clebs93/ubuntu-latest:latest
+    docker build -t ubuntu:latest .452297zzZ
+    docker push clebs93/ubuntu:latest
   displayName: 'Build e Push Docker Image'
