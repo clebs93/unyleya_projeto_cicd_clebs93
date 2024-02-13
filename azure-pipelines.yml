@@ -19,6 +19,17 @@ steps:
   displayName: 'Run a multi-line script'
 
 - script: |
-    docker build -t ubuntu:latest .452297zzZ
+    docker build -t ubuntu:latest .
     docker push clebs93/ubuntu:latest
   displayName: 'Build e Push Docker Image'
+
+- task: Docker@2
+  inputs:
+    containerRegistry: clebs93
+    repository: clebs93
+    command: 'push'
+    Dockerfile: '**/Dockerfile'
+    tags: |
+      latest
+      $(Build.BuildId)
+    containerRegistryEndpoint: 'NomeDaSuaConexaoDeRegistroDoDockerHub'  # Substitua pelo nome da sua conexão de registro
